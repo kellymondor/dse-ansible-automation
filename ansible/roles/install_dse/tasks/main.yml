@@ -1,0 +1,7 @@
+---
+
+- name: Install DSE
+  yum:
+    name: dse-full-6.0.4-1
+    state: present
+  become: yes

@@ -1,0 +1,26 @@
+---
+# dse install
+dse_major_version:
+dse_minor_version:
+
+dse_directory: /etc/dse
+data_file_directory: "/var/lib/cassandra/data"
+commitlog_directory: "/var/lib/cassandra/commitlog"
+saved_caches_directory: "/var/lib/cassandra/saved_caches"
+
+# topology
+datacenters:
+    datacenter_1:
+        name: graph-analytics
+        num_nodes: 3
+        workload:
+            spark: 1
+            graph: 1
+            solr: 0
+    datacenter_2:
+        name: graph-transactional
+        num_nodes: 3
+        workload:
+            spark: 0
+            graph: 1
+            solr: 0

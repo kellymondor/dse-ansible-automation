@@ -1,0 +1,27 @@
+---
+
+- name: Install, configure and start DSE on DSE servers
+  hosts: dseservers
+  remote_user: ec2-user
+
+  roles:
+  - common_dse
+  - install_dse
+  - configure_dse
+
+- name: Start DSE on seed nodes in serial
+  hosts: seednodes
+  remote_user: ec2-user
+  serial: 1
+
+  roles:
+  - start_dse
+
+- name: Start DSE on non-seed nodes in serial
+  hosts: dseservers:!seednodes
+  remote_user: ec2-user
+  serial: 1
+
+  roles:
+  - start_dse
+

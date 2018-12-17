@@ -1,0 +1,22 @@
+---
+
+- name: Install OpenJDK and libaio
+  yum:
+    name:
+      - java-1.8.0-openjdk
+      - libaio
+    state: present
+  become: yes
+
+- name: Add DataStax Yum repository to Yum repos
+  yum_repository:
+    name: datastax
+    description: DataStax Repo for DSE
+    file: /etc/yum.repos.d/datastax
+    baseurl: https://{{ DSA_user_id }}:{{ downloads_key }}@rpm.datastax.com/enterprise
+    enabled: yes
+    gpgcheck: no
+    state: present
+  become: yes
+
+

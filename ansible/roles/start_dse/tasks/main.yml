@@ -1,0 +1,5 @@
+- name: Start DSE service
+  service:
+    name: dse
+    state: restarted
+  become: yes

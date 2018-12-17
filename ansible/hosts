@@ -1,0 +1,18 @@
+
+[datacenter-1]
+ec2-18-209-136-214.compute-1.amazonaws.com node_public_ip=18.209.136.214
+
+[datacenter-2]
+ec2-35-170-70-214.compute-1.amazonaws.com node_public_ip=35.170.70.214
+
+[seednodes]
+ec2-18-209-136-214.compute-1.amazonaws.com
+
+[dseservers:children]
+datacenter-1
+datacenter-2
+seednodes
+
+[opscenterserver]
+#opscenter host here
+

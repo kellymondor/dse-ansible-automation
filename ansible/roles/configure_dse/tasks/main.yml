@@ -1,0 +1,35 @@
+- name: Template cassandra.yaml file
+  template:
+    src: ./templates/cassandra.yaml.j2
+    dest: "{{ dse_directory }}/cassandra/cassandra.yaml"
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    backup: yes
+  become: yes
+
+- name: Template cassandra-rack.dc file
+  template:
+    src: ./templates/cassandra-rackdc.properties.j2
+    dest: "{{ dse_directory }}/cassandra/cassandra-rackdc.properties"
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    backup: yes
+  become: yes
+
+- name: Template dse file to enable appropriate workloads
+  template:
+    src: ./templates/dse.j2
+    dest: "/etc/default/dse"
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    backup: yes
+  become: yes
+
+- name: Template remote.yaml file for graph workloads
+  template:
+    src: ./templates/remote.yaml.j2
+    dest: "/etc/dse/graph/gremlin-console/conf"
+    owner: "{{ owner }}"
+    group: "{{ group }}"
+    backup: yes
+  become: yes
