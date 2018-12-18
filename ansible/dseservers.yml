@@ -1,6 +1,6 @@
 ---
 
-- name: Install, configure and start DSE on DSE servers
+- name: Install and configure on DSE servers
   hosts: dseservers
   remote_user: ec2-user
 

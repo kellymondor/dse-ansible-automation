@@ -1,2 +1,2 @@
 - import_playbook: dseservers.yml
-#- import_playbook: opscenterserver.yml
+- import_playbook: opscenterserver.yml
