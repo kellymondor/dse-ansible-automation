@@ -1,6 +1,6 @@
 ---
 
-- name: Install and configure DSE on OpsCenter server
+- name: Install and configure OpsCenter on OpsCenter server
   hosts: opscenterserver
   remote_user: ec2-user
 
