@@ -25,3 +25,10 @@
   roles:
   - start_dse
 
+- name: Install Opscenter agents on all nodes
+  hosts: dseservers
+  remote_user: ec2-user
+
+  roles:
+  - install_agents
+

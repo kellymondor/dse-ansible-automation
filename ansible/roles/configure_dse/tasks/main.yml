@@ -28,7 +28,7 @@
 - name: Template remote.yaml file for graph workloads
   template:
     src: ./templates/remote.yaml.j2
-    dest: "/etc/dse/graph/gremlin-console/conf"
+    dest: "/etc/dse/graph/gremlin-console/conf/remote.yaml"
     owner: "{{ owner }}"
     group: "{{ group }}"
     backup: yes

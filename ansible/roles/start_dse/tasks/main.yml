@@ -3,3 +3,10 @@
     name: dse
     state: restarted
   become: yes
+
+- name: Wait for port 9042 to open on host
+  wait_for:
+    host: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+    port: 9042
+    timeout: 300
+    delay: 30
