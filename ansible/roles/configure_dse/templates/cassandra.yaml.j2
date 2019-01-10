@@ -6,7 +6,7 @@
 
 # The name of the cluster. This is mainly used to prevent machines in
 # one logical cluster from joining another.
-cluster_name: "Kelly's Cluster"
+cluster_name: {{cluster_name}}
 
 # The number of tokens randomly assigned to this node on the ring.
 # The higher the token count is relative to other nodes, the larger the proportion of data
@@ -203,12 +203,12 @@ partitioner: org.apache.cassandra.dht.Murmur3Partitioner
 # the configured compaction strategy.
 # If not set, the default directory is $DSE_HOME/data/data.
 data_file_directories:
-     - /var/lib/cassandra/data/
+     - {{ data_file_directories }}
 
 # Commit log directory. When running on magnetic HDD, this directory should be on a
 # separate spindle than the data directories.
 # If not set, the default directory is $DSE_HOME/data/commitlog.
-commitlog_directory: /var/lib/cassandra/commitlog
+commitlog_directory: {{ commitlog_directory }}
 
 # Whether to enable CDC functionality on a per-node basis. CDC functionality modifies the logic used
 # for write path allocation rejection. When false (standard behavior), never reject. When true (use cdc functionality),
@@ -219,7 +219,7 @@ cdc_enabled: false
 # segment contains mutations for a CDC-enabled table. This directory should be placed on a
 # separate spindle than the data directories. If not set, the default directory is
 # $DSE_HOME/data/cdc_raw.
-cdc_raw_directory: /var/lib/cassandra/cdc_raw
+cdc_raw_directory: {{ cdc_raw_directory }}
 
 # Policy for data disk failures:
 #

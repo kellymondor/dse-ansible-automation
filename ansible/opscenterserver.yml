@@ -7,3 +7,4 @@
   roles:
     - common_dse
     - install_opscenter
+    - start_opscenter

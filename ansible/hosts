@@ -1,15 +1,16 @@
 [datacenter-1]
 ec2-18-209-136-214.compute-1.amazonaws.com node_public_ip=18.209.136.214
-ec2-18-234-255-239.compute-1.amazonaws.com node_public_ip=18.234.255.239
+ec2-100-27-7-138.compute-1.amazonaws.com node_public_ip=100.27.7.138
+ec2-3-89-87-0.compute-1.amazonaws.com node_pubilc_ip=3.89.87.0
 
 [datacenter-2]
-ec2-34-205-41-142.compute-1.amazonaws.com node_public_ip=34.205.41.142
-ec2-35-172-250-5.compute-1.amazonaws.com node_public_ip=35.172.250.5
-ec2-35-170-57-102.compute-1.amazonaws.com node_public_ip=35.170.57.102
+ec2-100-25-248-245.compute-1.amazonaws.com node_public_ip=100.25.248.245
+ec2-34-200-245-104.compute-1.amazonaws.com node_public_ip=34.200.245.104
+ec2-35-175-125-131.compute-1.amazonaws.com node_public_ip=35.175.125.131
 
 [seednodes]
 ec2-18-209-136-214.compute-1.amazonaws.com
-ec2-34-205-41-142.compute-1.amazonaws.com
+ec2-100-25-248-245.compute-1.amazonaws.com
 
 [dseservers:children]
 datacenter-1
@@ -19,7 +20,7 @@ datacenter-2
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 [opscenterserver]
-ec2-35-175-116-126.compute-1.amazonaws.com node_public_ip=35.175.116.126
+ec2-54-83-253-221.compute-1.amazonaws.com node_public_ip=54.83.253.221
 
 [opscenterserver:vars]
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'

@@ -8,7 +8,7 @@
 
 - name: Template address.yaml file
   template:
-    src: ./templates/address.yaml
+    src: ./templates/address.yaml.j2
     dest: "/var/lib/datastax-agent/conf/address.yaml"
     owner: "{{ owner }}"
     group: "{{ group }}"

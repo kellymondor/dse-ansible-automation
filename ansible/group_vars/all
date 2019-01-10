@@ -3,29 +3,29 @@
 dse_major_version:
 dse_minor_version:
 
-dse_directory: /etc/dse
+# cassandra.yaml
+cluster_name: "Kelly's Cluster"
+num_tokens: 8
+
+
+dse_directory: "/etc/dse"
 data_file_directory: "/var/lib/cassandra/data"
 commitlog_directory: "/var/lib/cassandra/commitlog"
 saved_caches_directory: "/var/lib/cassandra/saved_caches"
 
-# topology
-datacenters:
-    datacenter_1:
-        name: graph-analytics
-        num_nodes: 3
-        workload:
-            spark: 1
-            graph: 1
-            solr: 0
-    datacenter_2:
-        name: graph-transactional
-        num_nodes: 3
-        workload:
-            spark: 0
-            graph: 1
-            solr: 0
+DSA_user_id: USER_ID
+downloads_key: PASSWORD
 
-DSA_user_id: kelly.mondor_155756
-downloads_key: Stefanie1!
+reachable_opscenterd_ip: 10.0.0.221
 
-reachable_opscenter_ip: 100.24.99.180
+
+
+
+
+
+
+
+
+
+
+

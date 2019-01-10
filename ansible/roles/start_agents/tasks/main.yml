@@ -1,0 +1,5 @@
+- name: Start Datastax Agents
+  service:
+    name: datastax-agent
+    state: restarted
+  become: yes
