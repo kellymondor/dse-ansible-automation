@@ -1,4 +1,3 @@
-▽
 # username/password can be set in this file as per TinkerPop documentation, however it will be stored in plain text.
 # prefer passing those arguments from the command line via -u and -p or by specifying them in
 # .cassandra/gremlinshrc as shown below and then setting file permissions to prevent unauthorized access:
@@ -7,12 +6,28 @@
 # username = fred
 # password = !!bang!!$
 # -----------------------------
-hosts: {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}
+hosts: [{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}]
 port: 8182
 serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0,
               config: { serializeResultToString: true, ioRegistries: [org.apache.tinkerpop.gremlin.tinkergraph.structure.TinkerIoRegistryV3d0] }}
 connectionPool: {
   enableSsl: false,
+  # JSSE keystore file path. Similar to setting JSSE property javax.net.ssl.keyStore.
+  # keyStore:,
+  # JSSE keystore password. Similar to setting JSSE property javax.net.ssl.keyStorePassword.
+  # keyStorePassword:,
+  # JSSE truststore file path. Similar to setting JSSE property javax.net.ssl.trustStore.
+  # trustStore:,
+  # JSSE truststore password. Similar to setting JSSE property javax.net.ssl.trustStorePassword.
+  # trustStorePassword:,
+  # JSSE keystore format. 'jks' or 'pkcs12'. Similar to setting JSSE property javax.net.ssl.keyStoreType.
+  # keyStoreType:,
+  # https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SunJSSE_Protocols
+  # sslEnabledProtocols:,
+  # https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SupportedCipherSuites
+  # sslCipherSuites:,
+  # If true, trust all certificates and do not perform any validation.
+  # sslSkipCertValidation:,
   # The maximum length in bytes that a message can be sent to the server. This number can be no greater than the
   # setting of the same name in the server configuration.
   maxContentLength: 65536000,
@@ -44,3 +59,4 @@ connectionPool: {
 # protocol:
 # username: xxx
 # password: xxx
+

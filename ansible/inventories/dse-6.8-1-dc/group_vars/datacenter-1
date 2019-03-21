@@ -1,0 +1,5 @@
+dc_name: "graph-spark-search"
+rack_name: "rack-1"
+graph_enabled: 1
+spark_enabled: 1
+solr_enabled: 1

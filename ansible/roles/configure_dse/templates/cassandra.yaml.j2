@@ -6,7 +6,7 @@
 
 # The name of the cluster. This is mainly used to prevent machines in
 # one logical cluster from joining another.
-cluster_name: {{cluster_name}}
+cluster_name: {{ cluster_name }}
 
 # The number of tokens randomly assigned to this node on the ring.
 # The higher the token count is relative to other nodes, the larger the proportion of data
@@ -21,11 +21,11 @@ cluster_name: {{cluster_name}}
 #
 # If you already have a cluster with 1 token per node, and want to migrate to
 # multiple tokens per node, see http://wiki.apache.org/cassandra/Operations
-num_tokens: 8
+num_tokens: {{ num_tokens }}
 
 # Triggers automatic allocation of num_tokens tokens for this node. The allocation
 # algorithm attempts to choose tokens in a way that optimizes replicated load over
-# the nodes in the datacenter for the specified DC-level replication factor.
+# the nodes in the datacenter for the data_file_directoryspecified DC-level replication factor.
 #
 # The load assigned to each node will be close to proportional to its number of
 # vnodes.
@@ -219,7 +219,7 @@ cdc_enabled: false
 # segment contains mutations for a CDC-enabled table. This directory should be placed on a
 # separate spindle than the data directories. If not set, the default directory is
 # $DSE_HOME/data/cdc_raw.
-cdc_raw_directory: {{ cdc_raw_directory }}
+cdc_raw_directory: /var/lib/cassandra/cdc_raw
 
 # Policy for data disk failures:
 #
@@ -403,7 +403,7 @@ seed_provider:
       parameters:
           # seeds is actually a comma-delimited list of addresses.
           # Ex: "<ip1>,<ip2>,<ip3>"
-          - seeds: "10.0.0.43,10.0.0.97"
+          - seeds: "10.0.0.138"
 
 # Maximum memory to use for SSTable chunk cache and buffer pooling.
 # 32 MB of this memory are reserved for pooling buffers, the rest is used as a
@@ -865,7 +865,7 @@ cross_node_timeout: false
 #    Analytics, and Search nodes into their separate datacenters.
 #    Appropriate only for Development deployments.
 #
-endpoint_snitch: GossipingPropertyFileSnitch
+endpoint_snitch: {{ endpoint_snitch }}
 
 # How often to perform the more expensive part of host score
 # calculation. Use care when reducing this interval, score calculation is CPU intensive.

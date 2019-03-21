@@ -1,0 +1,34 @@
+---
+
+dse_version: 6.7
+
+# cassandra.yaml
+cluster_name: "Kelly's Cluster"
+num_tokens: 8
+endpoint_snitch: GossipingPropertyFileSnitch
+dse_directory: "/etc/dse"
+data_file_directories: "/var/lib/cassandra/data"
+commitlog_directory: "/var/lib/cassandra/commitlog"
+saved_caches_directory: "/var/lib/cassandra/saved_caches"
+
+# Username/Password for Yum Repo
+DSA_user_id: YOUR_USERNAME
+downloads_key: YOUR_PASSWORD
+
+# address.yaml
+reachable_opscenterd_ip: 10.0.0.221
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

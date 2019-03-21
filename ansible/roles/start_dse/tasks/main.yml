@@ -1,7 +1,9 @@
 - name: Start DSE service
-  service:
-    name: dse
-    state: restarted
+#  service:
+#    name: dse
+#    state: restarted
+#  become: yes
+  command: service dse restart
   become: yes
 
 - name: Wait for port 9042 to open on host

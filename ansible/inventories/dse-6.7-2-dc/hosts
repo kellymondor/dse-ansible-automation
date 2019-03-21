@@ -1,0 +1,27 @@
+# file: project1
+
+[datacenter-1]
+ec2-3-92-6-172.compute-1.amazonaws.com node_public_ip=3.92.6.172
+ec2-34-205-92-184.compute-1.amazonaws.com node_public_ip=34.205.92.184
+ec2-34-239-94-158.compute-1.amazonaws.com node_public_ip=34.239.94.158
+
+[datacenter-1]
+ec2-3-92-6-172.compute-1.amazonaws.com node_public_ip=3.92.6.172
+ec2-34-205-92-184.compute-1.amazonaws.com node_public_ip=34.205.92.184
+ec2-34-239-94-158.compute-1.amazonaws.com node_public_ip=34.239.94.158
+
+[seednodes]
+ec2-3-92-6-172.compute-1.amazonaws.com
+
+[dseservers:children]
+datacenter-1
+datacenter-2
+
+[dseservers:vars]
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[opscenterserver]
+ec2-35-170-67-104.compute-1.amazonaws.com node_public_ip=35.170.67.104
+
+[opscenterserver:vars]
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'

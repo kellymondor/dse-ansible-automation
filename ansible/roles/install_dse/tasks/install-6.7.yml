@@ -1,0 +1,12 @@
+---
+- name: Make sure DSE 6.7 is a local yum repo
+  yum:
+    name: dse-full-6.0.4-1
+    state: present
+  become: yes
+
+- name: Install DSE
+  yum:
+    name: dse-full-6.0.4-1
+    state: present
+  become: yes

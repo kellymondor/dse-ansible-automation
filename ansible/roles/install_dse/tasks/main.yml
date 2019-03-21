@@ -1,7 +1,5 @@
----
+- import_tasks: tasks/install-6.7.yml
+  when: "{{ dse_version }}" == 6.7
 
-- name: Install DSE
-  yum:
-    name: dse-full-6.0.4-1
-    state: present
-  become: yes
+- import_tasks: tasks/install-6.8.yml
+  when: "{{ dse_version }}" == 6.8

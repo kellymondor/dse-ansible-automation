@@ -1,0 +1,27 @@
+---
+- name: Copy DSE 6.8 from local machine
+  copy:
+    src: ~/Documents/repos/bdp/build/redhat/noarch-19-01-24.tar
+    dest: ~/noarch-19-01-24.tar
+
+- name: Unarchive the DSE yum repo tarball
+  unarchive:
+    src: ~/noarch-19-01-24.tar
+    dest: ~/
+    remote_src: yes
+
+- name: Find all rpm files in /noarch folder
+  find:
+    paths: "~/noarch"
+    pattern: "*.rpm"
+  register: rpm_files
+
+- name: Set all RPM
+  set_fact:
+    rpm_list: "{{ rpm_files.files | map(attribute='path') | list}}"
+
+- name: Installing the RPM files
+  yum:
+    name: "{{rpm_list}}"
+    state: present
+  become: yes
